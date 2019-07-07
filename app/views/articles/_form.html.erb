@@ -1,27 +1,28 @@
-<%= form_with(model: article, local: true) do |form| %>
-  <% if article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-      <ul>
-      <% article.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<% if @article.errors.any? %>
+<p style="color: red;">The following errors ocurred:</p>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
+
+<%= form_for @article do |t| %>
+  <p>
+    <%= t.label :title %>
+    <%= t.text_field :title %>
+  </p>
+  <p>
+    <%= t.label :description %>
+    <%= t.text_area :description %>
+  </p>
+  <p>
+    <%= t.submit "Envie seu artigo" %>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to "Cancel. Back to listing articles", articles_path %>
+</p>

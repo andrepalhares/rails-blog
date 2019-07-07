@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root 'welcome#home' #pagina index
   #get 'welcome/about', to: 'welcome#about' =>
   get 'about', to: 'welcome#about'
+
+  resources :articles
 end
