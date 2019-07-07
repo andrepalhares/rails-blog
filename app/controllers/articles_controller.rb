@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save #Se não houver erros e o arquivo for adicionado ao banco
       flash[:notice] = "Article added!"
-      redirect_to article_path(@arwticle)
+      redirect_to article_path(@article)
     else
       render 'new' #Carrega o form de novo
     end
