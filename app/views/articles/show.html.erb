@@ -9,6 +9,24 @@
   <b>Description:</b> <%= @article.description %>
 </p>
 
+<% if @article.user %>
+  <small>
+    About the author:
+  </small>
+  <center><table>
+    <tr>
+      <th>Image</th>
+      <th>Username</th>
+      <th>Articles Written</th>
+    </tr>
+  <tr>
+    <td><%= link_to gravatar_for(@article.user, size: 50), user_path(@article.user) %></td>
+    <td><%= link_to @article.user.username, user_path(@article.user) %></td>
+    <td><small><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></small></td>
+  </tr>
+  </table></center>
+<% end %>
+
 <p>
   <%= link_to "Edit this article", edit_article_path(@article) %>
 </p>

@@ -1,0 +1,22 @@
+<h1>All Blog Users</h1>
+<hr />
+
+<%= will_paginate %>
+
+<center><table>
+  <tr>
+    <th>Image</th>
+    <th>Username</th>
+    <th>Articles Written</th>
+  </tr>
+
+<% @users.each do |user| %>
+<tr>
+  <td><%= link_to gravatar_for(user), user_path(user) %></td>
+  <td><%= link_to user.username, user_path(user) %></td>
+  <td><small><%= pluralize(user.articles.count, "article") if user.articles %></small></td>
+</tr>
+<% end %>
+</table></center>
+
+<%= will_paginate %>

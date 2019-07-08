@@ -1,0 +1,11 @@
+<h1>Welcome to <%= @user.username %>'s page</h1>
+<hr />
+
+<%= gravatar_for @user, size: 150 %>
+
+<h4><%= @user.username %>'s articles</h4>
+<%= will_paginate @user_articles %>
+
+<%= render 'articles/article', obj: @user_articles %>
+
+<%= will_paginate @user_articles %>

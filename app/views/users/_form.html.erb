@@ -1,0 +1,28 @@
+<% if @user.errors.any? %>
+<p style="color: red;">The following errors ocurred:</p>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @user do |t| %>
+  <p>
+    <%= t.label "Digite seu usuário" %>
+    <%= t.text_field :username %>
+  </p>
+  <p>
+    <%= t.label "Digite seu e-mail" %>
+    <%= t.email_field :email %>
+  </p>
+  <p>
+    <%= t.label "Digite sua senha" %>
+    <%= t.password_field :password %>
+  </p>
+  <p>
+    <%= t.submit (@user.new_record? ? "Crie sua conta": "Edite sua conta") %>
+  </p>
+<% end %>
