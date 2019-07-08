@@ -1,3 +1,5 @@
+Live: https://blog-andre-palhares.herokuapp.com/articles
+
 1) Criar uma nova aplicação Rails chamada alpha-Blog
   rails new alpha-blog
 
