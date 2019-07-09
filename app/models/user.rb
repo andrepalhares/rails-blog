@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :articles
+  has_many :articles, dependent: :destroy
   before_save { self.email = email.downcase } #retorna o email todo em minusculo antes de adicionar ao banco
 
   validates :username, presence: true,

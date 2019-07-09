@@ -28,7 +28,10 @@
 <% end %>
 
 <p>
-  <%= link_to "Edit this article", edit_article_path(@article) %>
+  <% if current_user == @article.user || current_user.admin?  %>
+    <%= link_to "Edit this article", edit_article_path(@article) %> |
+    <%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %>
+  <% end %>
 </p>
 
 <p>

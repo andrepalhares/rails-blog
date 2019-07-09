@@ -1,0 +1,16 @@
+<h1>Log In</h1>
+<hr />
+
+<%= form_for(:session, url: login_path) do |t| %>
+  <p>
+    <%= t.label "Digite seu e-mail" %>
+    <%= t.email_field :email %>
+  </p>
+  <p>
+    <%= t.label "Digite sua senha" %>
+    <%= t.password_field :password %>
+  </p>
+  <p>
+    <%= t.submit ("Log In") %>
+  </p>
+<% end %>
